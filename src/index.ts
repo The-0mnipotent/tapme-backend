@@ -2,7 +2,7 @@ import { createClient } from "@supabase/supabase-js";
 import dotenv from "dotenv";
 import { createYoga } from "graphql-yoga";
 import { createServer } from "http";
-import TelegramBot from "node-telegram-bot-api";
+import TelegramBot, { Message } from "node-telegram-bot-api";
 import { schema } from "./schema";
 
 // Load environment variables from .env file
@@ -18,7 +18,7 @@ const bot = new TelegramBot(process.env.TELEGRAM_BOT_ID as string, {
   polling: true,
 });
 
-bot.onText(/\/start/, async (msg) => {
+bot.onText(/\/start/, async (msg: Message) => {
   const chatId = msg.chat.id;
   const username = msg.chat.username || `user_${chatId}`;
 
