@@ -66,7 +66,14 @@ bot.onText(/\/start/, async (msg: Message) => {
 });
 
 // GraphQL Yoga server setup
-const yoga = createYoga({ schema });
+const yoga = createYoga({
+  schema,
+  cors: {
+    origin: "https://tapme-arpit-frontend.netlify.app",
+    credentials: true,
+  },
+  landingPage: true,
+});
 const server = createServer(yoga);
 
 server.listen(4000, () => {
