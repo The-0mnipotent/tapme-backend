@@ -154,6 +154,7 @@ bot.onText(/\/start/, async (msg: Message) => {
 const corsOptions = {
   origin: "https://tapme-arpit-frontend.netlify.app",
   credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE"],
 };
 
 const yoga = createYoga({
