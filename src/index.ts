@@ -133,6 +133,7 @@ bot.onText(/\/start/, async (msg: Message) => {
     }
 
     const playUrl = `https://tapme-arpit-frontend.netlify.app/?username=${username}`;
+    // const playUrl = `http://localhost:3000/?username={username}`;
 
     bot.sendMessage(
       chatId,
@@ -152,7 +153,8 @@ bot.onText(/\/start/, async (msg: Message) => {
 
 // GraphQL Yoga server setup with CORS
 const corsOptions = {
-  origin: "https://tapme-arpit-frontend.netlify.app",
+  // origin: "https://tapme-arpit-frontend.netlify.app",
+  origin: "http://localhost:3000",
   credentials: true,
   allowedHeaders: ["Content-Type", "Authorization"],
   methods: ["GET", "POST", "OPTIONS"],
